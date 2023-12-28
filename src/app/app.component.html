@@ -1,0 +1,37 @@
+<!-- Header -->
+<div class="header-pane">
+    <div class="logo-pane">
+        <span class="logo-title">Todo Today</span>
+        <span class="logo-subtitle">To do app that resets every midnight</span>
+    </div>
+
+    <ny-button text="GitHub" [iconConfig]="githubIconWhite" (clicked)="goToGithub()"></ny-button>
+</div>
+
+<!-- Main -->
+<div class="main-pane">
+    <!-- New Task -->
+    <ny-input placeholder="Add a new task" [text]="newTask" (changed)="newTask = $event" (searched)="submit()"></ny-input>
+
+    <!-- Tasks -->
+    <div class="card-list" *ngIf="!isLoading">
+        <div class="card" *ngFor="let task of tasks">
+            <span>
+                {{ task }}
+            </span>
+            <div class="complete">
+                <i class="complete-icon fa-solid fa-check fa-lg" (click)="complete(task)"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div class="loading-pane" *ngIf="isLoading">
+        <ny-spinner></ny-spinner>
+    </div>
+
+    <!-- Credit -->
+    <div class="built-by">
+        <span>Built by Namito ✌️</span>
+    </div>
+</div>

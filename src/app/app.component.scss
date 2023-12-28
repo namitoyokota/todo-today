@@ -1,0 +1,78 @@
+:host {
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+
+    display: grid;
+    grid-template-rows: min-content auto;
+    row-gap: 20px;
+}
+
+.header-pane {
+    display: grid;
+    grid-template-columns: auto min-content;
+    column-gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo-pane {
+        display: flex;
+        flex-direction: column;
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-weight: 400;
+            color: #6c757d;
+        }
+    }
+}
+
+.main-pane {
+    min-height: 150px;
+    display: grid;
+    grid-template-rows: min-content auto min-content;
+    row-gap: 20px;
+
+    .card-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+
+        .card {
+            display: grid;
+            grid-template-columns: auto min-content;
+            column-gap: 10px;
+            align-items: center;
+            border: 1px solid #c0c0c0;
+            border-radius: 3px;
+            background-color: #fff;
+            padding: 5px 10px;
+
+            .complete {
+                font-size: 0.8rem;
+                color: #6c757d;
+
+                .complete-icon:hover {
+                    color: black;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .loading-pane,
+    .built-by {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loading-pane {
+        height: 250px;
+    }
+}
