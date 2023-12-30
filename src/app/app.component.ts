@@ -75,7 +75,7 @@ export class AppComponent implements OnInit {
     private setTasks(): void {
         const midnight = new Date();
         midnight.setHours(23, 59, 59, 0);
-        document.cookie = `${this.cookieName}=${this.tasks.join('|')};expires=${midnight}`;
+        document.cookie = `${this.cookieName}=${this.tasks.join('|')};expires=${midnight.toUTCString()}`;
     }
 
     /**
