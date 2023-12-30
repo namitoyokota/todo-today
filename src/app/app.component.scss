@@ -38,6 +38,12 @@
     grid-template-rows: min-content auto min-content;
     row-gap: 20px;
 
+    .add-pane {
+        display: grid;
+        grid-template-columns: auto 80px;
+        column-gap: 10px;
+    }
+
     .card-list {
         display: flex;
         flex-direction: column;

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NyIconConfig, NyIconSize, NyIconType } from '@namitoyokota/ng-components';
 
 @Component({
     selector: 'app-root',
@@ -22,9 +21,6 @@ export class AppComponent implements OnInit {
     /** Name of the cookie to use for storage */
     readonly cookieName = 'tasks';
 
-    /** Icon config used to display GitHub Icon */
-    readonly githubIconWhite = new NyIconConfig('fa-github', NyIconType.brands, NyIconSize.medium, true);
-
     constructor() {}
 
     /**
@@ -32,13 +28,6 @@ export class AppComponent implements OnInit {
      */
     ngOnInit(): void {
         this.getTasks();
-    }
-
-    /**
-     * Opens GitHub repository
-     */
-    goToGithub(): void {
-        window.open('https://github.com/namitoyokota/todo-today', '_blank');
     }
 
     /**

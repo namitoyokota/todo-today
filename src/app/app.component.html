@@ -4,14 +4,15 @@
         <span class="logo-title">Todo Today</span>
         <span class="logo-subtitle">To do app that resets every midnight</span>
     </div>
-
-    <ny-button text="GitHub" [iconConfig]="githubIconWhite" (clicked)="goToGithub()"></ny-button>
 </div>
 
 <!-- Main -->
 <div class="main-pane">
     <!-- New Task -->
-    <ny-input placeholder="Add a new task" [text]="newTask" (changed)="newTask = $event" (searched)="submit()"></ny-input>
+    <div class="add-pane">
+        <ny-input placeholder="Add a new task" [text]="newTask" (changed)="newTask = $event" (searched)="submit()"></ny-input>
+        <ny-button text="Submit" (clicked)="submit()"></ny-button>
+    </div>
 
     <!-- Tasks -->
     <div class="card-list" *ngIf="!isLoading">
