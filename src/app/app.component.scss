@@ -54,25 +54,23 @@
             grid-template-columns: auto min-content;
             column-gap: 10px;
             align-items: center;
-            border: 1px solid #c0c0c0;
+            border: 1px solid white;
             border-radius: 3px;
-            background-color: #fff;
             padding: 5px 10px;
 
             .complete {
                 font-size: 0.8rem;
-                color: #6c757d;
+                color: white;
 
                 .complete-icon:hover {
-                    color: black;
+                    color: rgb(152, 228, 152);
                     cursor: pointer;
                 }
             }
         }
     }
 
-    .loading-pane,
-    .built-by {
+    .loading-pane {
         display: flex;
         align-items: center;
         justify-content: center;

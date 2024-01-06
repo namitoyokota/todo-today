@@ -10,8 +10,8 @@
 <div class="main-pane">
     <!-- New Task -->
     <div class="add-pane">
-        <ny-input placeholder="Add a new task" [text]="newTask" (changed)="newTask = $event" (searched)="submit()"></ny-input>
-        <ny-button text="Submit" (clicked)="submit()"></ny-button>
+        <ny-input placeholder="Add a new task" [text]="newTask" [dark]="true" (changed)="newTask = $event" (searched)="submit()"></ny-input>
+        <ny-button text="Submit" [dark]="true" (clicked)="submit()"></ny-button>
     </div>
 
     <!-- Tasks -->
@@ -29,10 +29,5 @@
     <!-- Loading Indicator -->
     <div class="loading-pane" *ngIf="isLoading">
         <ny-spinner></ny-spinner>
-    </div>
-
-    <!-- Credit -->
-    <div class="built-by">
-        <span>Built by Namito ✌️</span>
     </div>
 </div>
