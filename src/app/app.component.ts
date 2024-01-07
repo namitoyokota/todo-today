@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { fadeOutLeftBigOnLeaveAnimation } from 'angular-animations';
 
 @Component({
@@ -8,6 +8,9 @@ import { fadeOutLeftBigOnLeaveAnimation } from 'angular-animations';
     animations: [fadeOutLeftBigOnLeaveAnimation()],
 })
 export class AppComponent implements OnInit {
+    /** Reference to the audio element */
+    @ViewChild('player') player;
+
     /** List of tasks */
     tasks: string[] = [];
 
@@ -56,8 +59,20 @@ export class AppComponent implements OnInit {
      * Deletes a task from the cookie
      */
     complete(taskToDelete: string): void {
+        this.playSound();
         this.tasks = this.tasks.filter((task) => task !== taskToDelete);
         this.setTasks();
+    }
+
+    /**
+     * Plays audio on completion
+     */
+    private playSound(): void {
+        if (this.player.nativeElement.paused) {
+            this.player.nativeElement.play();
+        } else {
+            this.player.nativeElement.currentTime = 0;
+        }
     }
 
     /**
