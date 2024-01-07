@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { fadeOutLeftBigOnLeaveAnimation } from 'angular-animations';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
+    animations: [fadeOutLeftBigOnLeaveAnimation()],
 })
 export class AppComponent implements OnInit {
     /** List of tasks */

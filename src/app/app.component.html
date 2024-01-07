@@ -16,7 +16,7 @@
 
     <!-- Tasks -->
     <div class="card-list" *ngIf="!isLoading">
-        <div class="card" *ngFor="let task of tasks">
+        <div class="card" [@fadeOutLeftBigOnLeave] *ngFor="let task of tasks">
             <span>
                 {{ task }}
             </span>
