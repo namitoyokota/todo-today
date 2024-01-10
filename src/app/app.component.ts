@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { fadeOutLeftBigOnLeaveAnimation } from 'angular-animations';
 
 @Component({
@@ -8,8 +8,11 @@ import { fadeOutLeftBigOnLeaveAnimation } from 'angular-animations';
     animations: [fadeOutLeftBigOnLeaveAnimation()],
 })
 export class AppComponent implements OnInit {
-    /** Reference to the audio element */
-    @ViewChild('player') player;
+    /** Reference to the submit audio element */
+    @ViewChild('submitPlayer') submitPlayer: ElementRef;
+
+    /** Reference to the complete audio element */
+    @ViewChild('completePlayer') completePlayer: ElementRef;
 
     /** List of tasks */
     tasks: string[] = [];
@@ -49,9 +52,9 @@ export class AppComponent implements OnInit {
             return;
         }
 
+        this.playSound(this.submitPlayer);
         this.tasks = [...this.tasks, this.newTask.trim()];
         this.newTask = '';
-
         this.setTasks();
     }
 
@@ -59,19 +62,19 @@ export class AppComponent implements OnInit {
      * Deletes a task from the cookie
      */
     complete(taskToDelete: string): void {
-        this.playSound();
+        this.playSound(this.completePlayer);
         this.tasks = this.tasks.filter((task) => task !== taskToDelete);
         this.setTasks();
     }
 
     /**
-     * Plays audio on completion
+     * Plays audio on submission or completion
      */
-    private playSound(): void {
-        if (this.player.nativeElement.paused) {
-            this.player.nativeElement.play();
+    private playSound(player: ElementRef): void {
+        if (player.nativeElement.paused) {
+            player.nativeElement.play();
         } else {
-            this.player.nativeElement.currentTime = 0;
+            player.nativeElement.currentTime = 0;
         }
     }
 
