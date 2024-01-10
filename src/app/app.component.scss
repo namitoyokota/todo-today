@@ -70,13 +70,19 @@
         }
     }
 
-    .loading-pane {
+    .codebase-pane {
         display: flex;
-        align-items: center;
         justify-content: center;
+
+        a {
+            color: white;
+        }
     }
 
     .loading-pane {
         height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
