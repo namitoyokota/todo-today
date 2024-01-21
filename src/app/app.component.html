@@ -16,8 +16,14 @@
 <div class="main-pane">
     <!-- New Task -->
     <div class="add-pane">
-        <ny-input placeholder="Add a new task" [text]="newTask" [dark]="true" (changed)="newTask = $event" (searched)="submit()"></ny-input>
-        <ny-button text="Submit" [dark]="true" [disabled]="!newTask.length" (clicked)="submit()"></ny-button>
+        <mono-input
+            placeholder="Add a new task"
+            [text]="newTask"
+            [dark]="true"
+            (changed)="newTask = $event"
+            (searched)="submit()"
+        ></mono-input>
+        <mono-button text="Submit" [dark]="true" [disabled]="!newTask.length" (clicked)="submit()"></mono-button>
     </div>
 
     <!-- Tasks -->
@@ -39,6 +45,6 @@
 
     <!-- Loading Indicator -->
     <div class="loading-pane" *ngIf="isLoading">
-        <ny-spinner></ny-spinner>
+        <mono-spinner></mono-spinner>
     </div>
 </div>

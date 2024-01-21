@@ -2,21 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NyButtonModule, NyExpandModule, NyInputModule, NyLabelModule, NyMenuModule, NySpinnerModule } from '@namitoyokota/ng-components';
+import { MonoButtonModule, MonoInputModule, MonoSpinnerModule } from 'ngx-monochrome';
 import { AppComponent } from './app.component';
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        NyButtonModule,
-        NyInputModule,
-        NyMenuModule,
-        NyLabelModule,
-        NySpinnerModule,
-        NyExpandModule,
-    ],
+    imports: [BrowserModule, BrowserAnimationsModule, MonoButtonModule, MonoInputModule, MonoSpinnerModule],
     providers: [],
     bootstrap: [AppComponent],
 })
