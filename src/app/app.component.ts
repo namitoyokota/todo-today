@@ -96,7 +96,8 @@ export class AppComponent implements OnInit {
                 .split('; ')
                 .find((row) => row.startsWith(`${this.cookieName}=`))
                 ?.split('=')[1]
-                .split('|');
+                .split('|')
+                .filter((task) => task);
         }
     }
 }
