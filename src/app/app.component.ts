@@ -1,5 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { fadeOutLeftBigOnLeaveAnimation } from 'angular-animations';
+import { Subscription, interval } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -7,7 +8,7 @@ import { fadeOutLeftBigOnLeaveAnimation } from 'angular-animations';
     styleUrls: ['./app.component.scss'],
     animations: [fadeOutLeftBigOnLeaveAnimation()],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
     /** Reference to the submit audio element */
     @ViewChild('submitPlayer') submitPlayer: ElementRef;
 
@@ -26,8 +27,14 @@ export class AppComponent implements OnInit {
     /** Whether UI should lock */
     isLoading = false;
 
+    /** Index of element in array to bounce */
+    bounceIndex = 0;
+
     /** Name of the cookie to use for storage */
     readonly cookieName = 'tasks';
+
+    /** Used to handle interval counter observable */
+    private intervalSubscription: Subscription;
 
     constructor() {}
 
@@ -36,6 +43,15 @@ export class AppComponent implements OnInit {
      */
     ngOnInit(): void {
         this.getTasks();
+        this.startInterval();
+
+    }
+
+    /**
+     * On destroy lifecycle hook
+     */
+    ngOnDestroy(): void {
+        this.intervalSubscription.unsubscribe();
     }
 
     /**
@@ -99,5 +115,14 @@ export class AppComponent implements OnInit {
                 .split('|')
                 .filter((task) => task);
         }
+    }
+
+    /**
+     * Starts interval to bounce elements
+     */
+    private startInterval(): void {
+        this.intervalSubscription = interval(10000).subscribe(() => {
+            this.bounceIndex = Math.floor(Math.random()*this.tasks.length)
+        })
     }
 }
