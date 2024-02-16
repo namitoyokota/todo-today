@@ -28,7 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
     isLoading = false;
 
     /** Index of element in array to bounce */
-    bounceIndex = 0;
+    bounceIndex: number = null;
 
     /** Name of the cookie to use for storage */
     readonly cookieName = 'tasks';
@@ -79,6 +79,7 @@ export class AppComponent implements OnInit, OnDestroy {
      */
     complete(taskToDelete: string): void {
         this.playSound(this.completePlayer);
+        this.startInterval();
         this.tasks = this.tasks.filter((task) => task !== taskToDelete);
         this.setTasks();
     }
@@ -101,6 +102,7 @@ export class AppComponent implements OnInit, OnDestroy {
         const midnight = new Date();
         midnight.setHours(23, 59, 59, 0);
         document.cookie = `${this.cookieName}=${this.tasks.join('|')};expires=${midnight.toUTCString()}`;
+        this.startInterval();
     }
 
     /**
@@ -121,6 +123,7 @@ export class AppComponent implements OnInit, OnDestroy {
      * Starts interval to bounce elements
      */
     private startInterval(): void {
+        this.intervalSubscription?.unsubscribe();
         this.intervalSubscription = interval(10000).subscribe(() => {
             this.bounceIndex = Math.floor(Math.random()*this.tasks.length)
         })
