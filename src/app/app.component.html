@@ -23,7 +23,7 @@
             (changed)="newTask = $event"
             (searched)="submit()"
         ></mono-input>
-        <mono-button text="Submit" [dark]="true" [disabled]="!newTask.length" (clicked)="submit()"></mono-button>
+        <mono-button text="Submit" [title]="!newTask.length ? 'You cannot add an empty task.' : ''" [dark]="true" [disabled]="!newTask.length" (clicked)="submit()"></mono-button>
     </div>
 
     <!-- Tasks -->
