@@ -124,8 +124,8 @@ export class AppComponent implements OnInit, OnDestroy {
      */
     private startInterval(): void {
         this.intervalSubscription?.unsubscribe();
-        this.intervalSubscription = interval(10000).subscribe(() => {
-            this.bounceIndex = Math.floor(Math.random()*this.tasks.length)
+        this.intervalSubscription = interval(30000).subscribe(() => {
+            this.bounceIndex = Math.floor(Math.random() * this.tasks.length)
         })
     }
 }
