@@ -23,13 +23,25 @@
             (changed)="newTask = $event"
             (searched)="submit()"
         ></mono-input>
-        <mono-button text="Submit" [title]="!newTask.length ? 'You cannot add an empty task.' : ''" [dark]="true" [disabled]="!newTask.length" (clicked)="submit()"></mono-button>
+        <mono-button
+            text="Submit"
+            [title]="!newTask.length ? 'You cannot add an empty task.' : ''"
+            [dark]="true"
+            [disabled]="!newTask.length"
+            (clicked)="submit()"
+        ></mono-button>
     </div>
 
     <!-- Tasks -->
-    <div class="card-list" *ngIf="!isLoading">
-        <div class="card" [@fadeOutLeftBigOnLeave] *ngFor="let task of tasks; let i = index" [class]="i === bounceIndex ? 'animate__animated animate__rubberBand' : ''">
-            <span >
+    <div *ngIf="!isLoading" class="card-list" cdkDropList (cdkDropListDropped)="drop($event)">
+        <div
+            *ngFor="let task of tasks; let i = index"
+            class="card"
+            cdkDrag
+            [@fadeOutLeftBigOnLeave]
+            [class]="i === bounceIndex ? 'animate__animated animate__rubberBand' : ''"
+        >
+            <span>
                 {{ task }}
             </span>
             <div class="complete">

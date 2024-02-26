@@ -48,24 +48,6 @@
         flex-direction: column;
         row-gap: 5px;
 
-        .card {
-            display: grid;
-            grid-template-columns: auto min-content;
-            column-gap: 10px;
-            align-items: center;
-            border-bottom: 1px solid #c0c0c0;
-            padding: 5px 10px;
-
-            .complete {
-                font-size: 0.8rem;
-                color: white;
-
-                .complete-icon:hover {
-                    color: rgb(152, 228, 152);
-                    cursor: pointer;
-                }
-            }
-        }
     }
 
     .codebase-pane {

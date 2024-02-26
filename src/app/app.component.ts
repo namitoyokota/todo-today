@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { fadeOutLeftBigOnLeaveAnimation } from 'angular-animations';
 import { Subscription, interval } from 'rxjs';
@@ -5,7 +6,7 @@ import { Subscription, interval } from 'rxjs';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
+    styleUrls: ['./app.component.scss', './sorting.scss'],
     animations: [fadeOutLeftBigOnLeaveAnimation()],
 })
 export class AppComponent implements OnInit, OnDestroy {
@@ -44,7 +45,6 @@ export class AppComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.getTasks();
         this.startInterval();
-
     }
 
     /**
@@ -81,6 +81,15 @@ export class AppComponent implements OnInit, OnDestroy {
         this.playSound(this.completePlayer);
         this.startInterval();
         this.tasks = this.tasks.filter((task) => task !== taskToDelete);
+        this.setTasks();
+    }
+
+    /**
+     * Handles reordering on drag and drop
+     * @param event Updated order
+     */
+    drop(event: CdkDragDrop<string[]>) {
+        moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
         this.setTasks();
     }
 
@@ -125,7 +134,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private startInterval(): void {
         this.intervalSubscription?.unsubscribe();
         this.intervalSubscription = interval(30000).subscribe(() => {
-            this.bounceIndex = Math.floor(Math.random() * this.tasks.length)
-        })
+            this.bounceIndex = Math.floor(Math.random() * this.tasks.length);
+        });
     }
 }
