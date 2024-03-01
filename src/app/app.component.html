@@ -33,7 +33,7 @@
     </div>
 
     <!-- Tasks -->
-    <div *ngIf="!isLoading" class="card-list" cdkDropList (cdkDropListDropped)="drop($event)">
+    <div *ngIf="!isLoading && tasks.length" class="card-list" cdkDropList (cdkDropListDropped)="drop($event)">
         <div
             *ngFor="let task of tasks; let i = index"
             class="card"
