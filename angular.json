@@ -65,10 +65,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "todo-today:build:production"
+                          "buildTarget": "todo-today:build:production"
                         },
                         "development": {
-                            "browserTarget": "todo-today:build:development"
+                          "buildTarget": "todo-today:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "todo-today:build"
+                      "buildTarget": "todo-today:build"
                     }
                 },
                 "test": {
