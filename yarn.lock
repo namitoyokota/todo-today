@@ -168,6 +168,13 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/common@^17.3.7":
+  version "17.3.9"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-17.3.9.tgz#9737ed8f188c0426f086916f0952610638698c16"
+  integrity sha512-tH1VfbAvNVaz6ZYa+q0DiKtbmUql1jK/3q/af74B8nVjKLHcXVWwxvBayqvrmlUt7FGANGkETIcCWrB44k47Ug==
+  dependencies:
+    tslib "^2.3.0"
+
 "@angular/compiler-cli@^16.2.12":
   version "16.2.12"
   resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-16.2.12.tgz#e24b4bdaf23047b23d7b39e295b7d25b38c5734c"
@@ -193,6 +200,13 @@
   version "16.2.12"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-16.2.12.tgz#f664204275ee5f5eb46bddc0867e7a514731605f"
   integrity sha512-GLLlDeke/NjroaLYOks0uyzFVo6HyLl7VOm0K1QpLXnYvW63W9Ql/T3yguRZa7tRkOAeFZ3jw+1wnBD4O8MoUA==
+  dependencies:
+    tslib "^2.3.0"
+
+"@angular/core@^17.3.7":
+  version "17.3.9"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-17.3.9.tgz#e06da8e530a2652d26856bef205d0e40e68bd471"
+  integrity sha512-x+h5BQ6islvYWGVLTz1CEgNq1/5IYngQ+Inq/tWayM6jN7RPOCydCCbCw+uOZS7MgFebkP0gYTVm14y1MRFKSQ==
   dependencies:
     tslib "^2.3.0"
 
@@ -5113,11 +5127,13 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-ngx-monochrome@^0.1.8:
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/ngx-monochrome/-/ngx-monochrome-0.1.10.tgz#3f495b5917a8a9594482e9045760e0ce56882fde"
-  integrity sha512-XR40e6YQ9P6mrjvuo+qCgB5TTcvn1+QaaSChKGwUAU3Vj5jumlooKKxp7yNOEhQIULHaeyL9htd72OLr7C4XvA==
+ngx-monochrome@^17.0.0:
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-monochrome/-/ngx-monochrome-17.0.0.tgz#4390ff6c0abcb28b50a3dc5603ebd2a6857ccef9"
+  integrity sha512-Vo3Wff2Pjm+b7Ms/LXVGXp5pCbKOwAXkFYX1BLQJkiqtKGM/ssv+DMp7+2OqCN0rD9pFFm1oemAZCz7oyn7buQ==
   dependencies:
+    "@angular/common" "^17.3.7"
+    "@angular/core" "^17.3.7"
     tslib "^2.3.0"
 
 nice-napi@^1.0.2:
